@@ -1,0 +1,3 @@
+# digunakan untk memblok access ke dalam folder yang menerapkan .htaccess
+# jika didalamnnya tidak ada file index
+Options -Indexes

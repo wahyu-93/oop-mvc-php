@@ -1,0 +1,20 @@
+# digunakan untuk menghindari kesalahan atau ambigu ketika 
+# mengambil file atau folder didalam public
+Options -Multiviews
+
+# menulis ulang url didalam browser
+RewriteEngine On 
+
+# abaikan jika url yang ditulis itu nama folder
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# menghindari kesalahan ketika url yang ditulis itu sama 
+# dengan nama controller atau method yang kita buat
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# tanda regex ambil karakter apapun dari awal sampai akhir kecuali enter
+# kemudian diarahkan ke file index.php
+# $1 = apapun yng ditulis didalam url akan disimpan ke dalam sini {flag}
+# [L] = jika ada rule sudah terpenuhi, jgn jalankan rule lain setelah ini
+# [NC] = inputan bisa case sensitive
+RewriteRule ^(.*)$ index.php?url=$1 [L]
