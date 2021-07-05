@@ -1,3 +1,3 @@
 <?php
 
-define('BASEURL', 'http://localhost:8080/mvcphp/public');
+define('BASEURL', 'http://localhost/oop-mvc-php/public');
