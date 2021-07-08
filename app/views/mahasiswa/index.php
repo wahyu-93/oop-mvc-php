@@ -4,7 +4,7 @@
             <?= Flasher::Flash(); ?>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#formModal">
+            <button type="button" class="btn btn-primary btn-sm tambahData" data-toggle="modal" data-target="#formModal">
                Tambah Data Mahasiswa
             </button>
             <br><br>
@@ -18,6 +18,12 @@
                             onClick="return confirm('Yakin Dihapus ?' )">
                             Hapus
                         </a>                            
+                        <a  href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id'] ?>" 
+                            class="badge badge-success float-right ml-1 ubahData"
+                            data-toggle="modal" data-target="#formModal"
+                            data-id="<?= $mhs['id']; ?>">
+                            Ubah
+                        </a>                            
                         <a  href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id'] ?>" 
                             class="badge badge-primary float-right ml-1">
                             Detail
@@ -30,17 +36,19 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Mahasiswa</h5>
+        <h5 class="modal-title" id="formModalLabel">Tambah Data Mahasiswa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
             <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+                <input type="hidden" id="id" name="id">
+
                 <div class="form-group">
                     <label for="nama">Nama</label>
                     <input type="text" class="form-control" id="nama" name="nama">
